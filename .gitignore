@@ -1,0 +1,32 @@
+# Maven
+target/
+pom.xml.tag
+*.war
+*.jar
+*.class
+
+# 로컬 Maven (선택: 포함 안 함)
+apache-maven-3.8.6/
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+.springBeans
+
+# 로그
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 기타
+*.swp
+*.bak
+*~

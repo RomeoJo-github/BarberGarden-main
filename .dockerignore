@@ -1,0 +1,11 @@
+target/
+.git/
+.gitignore
+*.md
+.idea/
+*.iml
+.vscode/
+*.log
+apache-maven-*/
+run.ps1
+run.bat
