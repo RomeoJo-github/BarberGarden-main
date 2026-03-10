@@ -23,6 +23,20 @@ if %errorlevel% neq 0 (
 )
 echo [확인] Java 설치됨
 
+REM Java 17 ZoneInfoFile 오류 방지 (타임존 설정)
+set TZ=UTC
+
+REM Eclipse Adoptium Java 17 우선 사용
+if "%JAVA_HOME%"=="" (
+    if exist "C:\Program Files\Eclipse Adoptium\jdk-17.0.17.10-hotspot\bin\java.exe" (
+        set JAVA_HOME=C:\Program Files\Eclipse Adoptium\jdk-17.0.17.10-hotspot
+        echo [자동] JAVA_HOME 설정: %JAVA_HOME%
+    )
+)
+
+REM Java 17 + Tomcat 7 호환용 JVM 옵션
+set MAVEN_OPTS=--add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED
+
 REM 프로젝트 디렉토리로 이동
 echo.
 echo [2/3] 프로젝트 디렉토리 확인 중...

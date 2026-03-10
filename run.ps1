@@ -29,6 +29,21 @@ $scriptPath = Split-Path -Parent $MyInvocation.MyCommand.Path
 Set-Location $scriptPath
 Write-Host "✓ 작업 디렉토리: $scriptPath" -ForegroundColor Green
 
+# Java 17 ZoneInfoFile 오류 방지 (타임존 설정)
+$env:TZ = "UTC"
+
+# Eclipse Adoptium Java 17 우선 사용 (Microsoft OpenJDK 17 ZoneInfoFile 오류 방지)
+if (-not $env:JAVA_HOME) {
+    $adoptiumPath = "C:\Program Files\Eclipse Adoptium\jdk-17.0.17.10-hotspot"
+    if (Test-Path "$adoptiumPath\bin\java.exe") {
+        $env:JAVA_HOME = $adoptiumPath
+        Write-Host "[자동] JAVA_HOME 설정: $env:JAVA_HOME" -ForegroundColor Cyan
+    }
+}
+
+# Java 17 + Tomcat 7 호환용 JVM 옵션
+$env:MAVEN_OPTS = "--add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED"
+
 # Maven 경로 확인
 $mavenPath = Join-Path $scriptPath "apache-maven-3.8.6\bin\mvn.cmd"
 if (-not (Test-Path $mavenPath)) {

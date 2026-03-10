@@ -6,14 +6,15 @@
 
 ### 1. Java JDK 설치 (필수)
 
-**현재 상태**: Java가 설치되어 있지 않습니다.
+**권장**: Java 11 (Eclipse Temurin). Java 17 Microsoft OpenJDK에서 `ZoneInfoFile StreamCorruptedException` 오류가 발생할 수 있습니다.
 
 **설치 방법**:
 1. **Oracle JDK** 또는 **OpenJDK** 다운로드
    - 권장 버전: Java 8 이상 (프로젝트는 Java 1.6 이상 요구)
    - 다운로드 링크:
+     - **Eclipse Temurin Java 11** (권장): https://adoptium.net/ → Java 11 선택
+     - 또는 `winget install EclipseAdoptium.Temurin.11.JDK` 실행
      - Oracle JDK: https://www.oracle.com/java/technologies/downloads/
-     - OpenJDK: https://adoptium.net/ (권장)
 
 2. **설치 후 환경 변수 설정**:
    - `JAVA_HOME`: Java 설치 경로 (예: `C:\Program Files\Java\jdk-17`)

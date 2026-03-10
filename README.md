@@ -104,6 +104,11 @@ BarberGarden/
 
 #### 방법 1: 실행 스크립트 사용 (가장 간단) ⭐
 
+**Git Bash:**
+```bash
+./run.sh
+```
+
 **Windows PowerShell:**
 ```powershell
 .\run.ps1
@@ -142,10 +147,16 @@ mvn clean package
 # target/app-1.0.0-BUILD-SNAPSHOT.war를 Tomcat webapps 폴더에 복사
 ```
 
-#### Java 17 사용 시 (Tomcat 7 호환용)
-Java 17에서 실행하려면 터미널에서 `MAVEN_OPTS`를 설정한 뒤 실행하세요.
+#### Java 17 사용 시
+Java 17에서 `ZoneInfoFile StreamCorruptedException` 오류가 발생하면, 실행 스크립트(`run.sh`, `run.ps1`, `run.bat`)를 사용하세요. 스크립트에 `TZ=UTC` 설정이 포함되어 있습니다.
 
-**PowerShell:**
+**수동 실행 시 (Git Bash):**
+```bash
+export TZ=UTC
+./apache-maven-3.8.6/bin/mvn clean compile tomcat7:run
+```
+
+**Tomcat 7 호환용 추가 옵션이 필요한 경우 (PowerShell):**
 ```powershell
 $env:MAVEN_OPTS="--add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED"
 .\apache-maven-3.8.6\bin\mvn.cmd tomcat7:run
