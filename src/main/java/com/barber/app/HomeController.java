@@ -27,78 +27,83 @@ public class HomeController {
 	/**
 	 * 바버샵 메인 페이지를 렌더링합니다. (모든 섹션 포함)
 	 */
+	/**
+	 * 모든 페이지에 공통으로 매장 정보를 주입합니다.
+	 * SHOP_INFO 타입 콘텐츠에서 로딩: title=상호명, description=주소, skills=전화번호
+	 */
+	private void addShopInfo(Model model) {
+		StaffContentDto shopInfo = contentApiService.getShopInfo();
+		if (shopInfo != null) {
+			model.addAttribute("shopName",    shopInfo.getTitle());
+			model.addAttribute("shopAddress", shopInfo.getDescription());
+			model.addAttribute("shopPhone",   shopInfo.getSkills());
+		} else {
+			model.addAttribute("shopName",    "BarberGarden");
+			model.addAttribute("shopAddress", "");
+			model.addAttribute("shopPhone",   "");
+		}
+	}
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome to BarberGarden! The client locale is {}.", locale);
-		
-		model.addAttribute("shopName", "BarberGarden");
-		model.addAttribute("shopDescription", "프리미엄 바버샵 서비스");
-		model.addAttribute("shopAddress", "석촌동 174-15 2층 바버가든");
-		model.addAttribute("shopPhone", "010-5539-0831");
 
-		// 어드민 백엔드 API에서 콘텐츠 로딩
+		addShopInfo(model);
+
 		List<StaffContentDto> heroList    = contentApiService.getVisibleContentsByType("HERO");
 		List<StaffContentDto> staffList   = contentApiService.getVisibleContentsByType("STAFF");
 		List<StaffContentDto> galleryList = contentApiService.getVisibleContentsByType("GALLERY");
 
-		// 히어로 섹션: 첫 번째 항목 사용
 		StaffContentDto hero = heroList.isEmpty() ? null : heroList.get(0);
 		model.addAttribute("hero",        hero);
 		model.addAttribute("staffList",   staffList);
 		model.addAttribute("galleryList", galleryList);
-		logger.info("히어로: " + heroList.size() + "건, 직원: " + staffList.size() + "건, 갤러리: " + galleryList.size() + "건 로딩");
-		
+		logger.info("히어로: {}건, 직원: {}건, 갤러리: {}건 로딩", heroList.size(), staffList.size(), galleryList.size());
+
 		return "barbershop";
 	}
-	
+
 	/**
 	 * 직원소개 페이지를 렌더링합니다.
 	 */
 	@RequestMapping(value = "/staff", method = RequestMethod.GET)
 	public String staff(Locale locale, Model model) {
 		logger.info("Staff page accessed. The client locale is {}.", locale);
-		
-		model.addAttribute("shopName", "BarberGarden");
-		model.addAttribute("shopAddress", "석촌동 174-15 2층 바버가든");
-		model.addAttribute("shopPhone", "010-5539-0831");
+
+		addShopInfo(model);
 
 		List<StaffContentDto> staffList = contentApiService.getVisibleContentsByType("STAFF");
 		model.addAttribute("staffList", staffList);
 		logger.info("직원: {}건 로딩", staffList.size());
-		
+
 		return "staff";
 	}
-	
+
 	/**
 	 * 갤러리 페이지를 렌더링합니다.
 	 */
 	@RequestMapping(value = "/gallery", method = RequestMethod.GET)
 	public String gallery(Locale locale, Model model) {
 		logger.info("Gallery page accessed. The client locale is {}.", locale);
-		
-		model.addAttribute("shopName", "BarberGarden");
-		model.addAttribute("shopAddress", "석촌동 174-15 2층 바버가든");
-		model.addAttribute("shopPhone", "010-5539-0831");
+
+		addShopInfo(model);
 
 		List<StaffContentDto> galleryList = contentApiService.getVisibleContentsByType("GALLERY");
 		model.addAttribute("galleryList", galleryList);
 		logger.info("갤러리: {}건 로딩", galleryList.size());
-		
+
 		return "gallery";
 	}
-	
+
 	/**
 	 * 아카데미 페이지를 렌더링합니다.
 	 */
 	@RequestMapping(value = "/academy", method = RequestMethod.GET)
 	public String academy(Locale locale, Model model) {
 		logger.info("Academy page accessed. The client locale is {}.", locale);
-		
-		// 바버샵 정보를 모델에 추가
-		model.addAttribute("shopName", "BarberGarden");
-		model.addAttribute("shopAddress", "석촌동 174-15 2층 바버가든");
-		model.addAttribute("shopPhone", "010-5539-0831");
-		
+
+		addShopInfo(model);
+
 		return "academy";
 	}
 	

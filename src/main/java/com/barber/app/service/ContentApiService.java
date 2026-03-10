@@ -26,6 +26,7 @@ public class ContentApiService {
 
     private static final Logger logger = LoggerFactory.getLogger(ContentApiService.class);
     private static final String ADMIN_API_BASE = "http://localhost:8090/api/contents/type";
+    private static final String ADMIN_API_ROOT = "http://localhost:8090/api/contents";
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 
@@ -72,5 +73,14 @@ public class ContentApiService {
         }
 
         return result;
+    }
+
+    /**
+     * SHOP_INFO 타입 중 visible=true인 첫 번째 항목을 반환합니다.
+     * title = 상호명, description = 주소, skills = 전화번호 로 사용합니다.
+     */
+    public StaffContentDto getShopInfo() {
+        List<StaffContentDto> list = getVisibleContentsByType("SHOP_INFO");
+        return list.isEmpty() ? null : list.get(0);
     }
 }
