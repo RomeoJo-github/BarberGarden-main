@@ -58,7 +58,7 @@ public class HomeController {
 		model.addAttribute("hero",        hero);
 		model.addAttribute("staffList",   staffList);
 		model.addAttribute("galleryList", galleryList);
-		logger.info("히어로: {}건, 직원: {}건, 갤러리: {}건 로딩", heroList.size(), staffList.size(), galleryList.size());
+		logger.info("히어로: " + heroList.size() + "건, 직원: " + staffList.size() + "건, 갤러리: " + galleryList.size() + "건 로딩");
 
 		return "barbershop";
 	}
