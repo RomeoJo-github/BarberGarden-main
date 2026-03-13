@@ -44,7 +44,7 @@
                         <div class="staff-card fade-in">
                             <c:choose>
                                 <c:when test="${not empty staff.imageUrl}">
-                                    <div class="staff-photo" style="background-image: url('http://localhost:8090${staff.imageUrl}'); background-size: cover; background-position: center;"></div>
+                                    <div class="staff-photo" style="background-image: url('${staff.imageUrl}'); background-size: cover; background-position: center;"></div>
                                 </c:when>
                                 <c:otherwise>
                                     <div class="staff-photo">${staff.title.substring(0,1)}</div>

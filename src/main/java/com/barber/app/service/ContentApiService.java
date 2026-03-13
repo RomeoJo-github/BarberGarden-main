@@ -25,8 +25,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class ContentApiService {
 
     private static final Logger logger = LoggerFactory.getLogger(ContentApiService.class);
-    private static final String ADMIN_API_BASE = "http://localhost:8090/api/contents/type";
-    private static final String ADMIN_API_ROOT = "http://localhost:8090/api/contents";
+    private static final String ADMIN_API_BASE = "http://app:8090/api/contents/type";
+    private static final String ADMIN_API_ROOT = "http://app:8090/api/contents";
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 

@@ -37,22 +37,15 @@
                 <c:choose>
                     <%-- 관리자에서 영상을 등록한 경우 --%>
                     <c:when test="${not empty hero and not empty hero.videoUrl}">
-                        <video autoplay muted loop>
-                            <source src="http://localhost:8090${hero.videoUrl}" type="video/mp4">
+                        <video autoplay muted loop playsinline>
+                            <source src="${hero.videoUrl}" type="video/mp4">
                             영상을 지원하지 않는 브라우저입니다.
                         </video>
                     </c:when>
                     <%-- 관리자에서 이미지를 등록한 경우 --%>
                     <c:when test="${not empty hero and not empty hero.imageUrl}">
-                        <div style="width:100%; height:100%; background-image: url('http://localhost:8090${hero.imageUrl}'); background-size: cover; background-position: center;"></div>
+                        <div style="width:100%; height:100%; background-image: url('${hero.imageUrl}'); background-size: cover; background-position: center;"></div>
                     </c:when>
-                    <%-- 등록된 콘텐츠가 없으면 기본 영상 사용 --%>
-                    <c:otherwise>
-                        <video autoplay muted loop>
-                            <source src="${resources}/video/barbershop-intro.mp4" type="video/mp4">
-                            영상을 지원하지 않는 브라우저입니다.
-                        </video>
-                    </c:otherwise>
                 </c:choose>
             </div>
             <div class="hero-overlay"></div>
@@ -82,7 +75,7 @@
                         <div class="staff-card fade-in">
                             <c:choose>
                                 <c:when test="${not empty staff.imageUrl}">
-                                    <div class="staff-photo" style="background-image: url('http://localhost:8090${staff.imageUrl}'); background-size: cover; background-position: center;"></div>
+                                    <div class="staff-photo" style="background-image: url('${staff.imageUrl}'); background-size: cover; background-position: center;"></div>
                                 </c:when>
                                 <c:otherwise>
                                     <div class="staff-photo">${staff.title.substring(0,1)}</div>
@@ -114,7 +107,7 @@
                             <div class="gallery-item fade-in">
                                 <c:choose>
                                     <c:when test="${not empty gallery.imageUrl}">
-                                        <div class="gallery-image" style="background-image: url('http://localhost:8090${gallery.imageUrl}'); background-size: cover; background-position: center; height: 300px;"></div>
+                                        <div class="gallery-image" style="background-image: url('${gallery.imageUrl}'); background-size: cover; background-position: center; height: 300px;"></div>
                                     </c:when>
                                     <c:otherwise>
                                         <div class="gallery-placeholder">${gallery.title}</div>

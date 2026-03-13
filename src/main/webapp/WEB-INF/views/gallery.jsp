@@ -56,7 +56,7 @@
                         <div class="gallery-item-large fade-in" data-category="all">
                             <c:choose>
                                 <c:when test="${not empty gallery.imageUrl}">
-                                    <div class="gallery-image-large" style="background-image: url('http://localhost:8090${gallery.imageUrl}'); background-size: cover; background-position: center; min-height: 400px;"></div>
+                                    <div class="gallery-image-large" style="background-image: url('${gallery.imageUrl}'); background-size: cover; background-position: center; min-height: 400px;"></div>
                                 </c:when>
                                 <c:otherwise>
                                     <div class="gallery-placeholder-large">${gallery.title}</div>
