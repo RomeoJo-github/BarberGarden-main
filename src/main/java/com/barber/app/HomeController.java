@@ -42,6 +42,18 @@ public class HomeController {
 			model.addAttribute("shopAddress", "");
 			model.addAttribute("shopPhone",   "");
 		}
+
+		// 소셜 링크 - SOCIAL_LINKS 콘텐츠: title=인스타, description=유튜브, skills=네이버예약
+		StaffContentDto social = contentApiService.getSocialLinks();
+		if (social != null) {
+			model.addAttribute("instagramUrl",    social.getTitle());
+			model.addAttribute("youtubeUrl",      social.getDescription());
+			model.addAttribute("naverBookingUrl", social.getSkills());
+		} else {
+			model.addAttribute("instagramUrl",    "https://www.instagram.com/bbgarden_k");
+			model.addAttribute("youtubeUrl",      "https://youtube.com/@bbgardenk");
+			model.addAttribute("naverBookingUrl", "https://booking.naver.com/booking/13/bizes/669304");
+		}
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -96,15 +108,53 @@ public class HomeController {
 	}
 
 	/**
-	 * 아카데미 페이지를 렌더링합니다.
+	 * 매장정보 페이지 (home.jsp의 /location 링크 대응)
+	 */
+	@RequestMapping(value = "/location", method = RequestMethod.GET)
+	public String location(Locale locale, Model model) {
+		logger.info("Location page accessed.");
+		addShopInfo(model);
+		return "barbershop";
+	}
+
+	/**
+	 * 아카데미 메인 페이지를 렌더링합니다.
 	 */
 	@RequestMapping(value = "/academy", method = RequestMethod.GET)
 	public String academy(Locale locale, Model model) {
 		logger.info("Academy page accessed. The client locale is {}.", locale);
-
 		addShopInfo(model);
-
 		return "academy";
 	}
-	
+
+	/**
+	 * 아카데미 - 과정 및 가격 페이지를 렌더링합니다.
+	 */
+	@RequestMapping(value = "/academy/courses", method = RequestMethod.GET)
+	public String academyCourses(Locale locale, Model model) {
+		logger.info("Academy courses page accessed.");
+		addShopInfo(model);
+		return "academy-courses";
+	}
+
+	/**
+	 * 아카데미 - 후기 페이지를 렌더링합니다.
+	 */
+	@RequestMapping(value = "/academy/reviews", method = RequestMethod.GET)
+	public String academyReviews(Locale locale, Model model) {
+		logger.info("Academy reviews page accessed.");
+		addShopInfo(model);
+		return "academy-reviews";
+	}
+
+	/**
+	 * 아카데미 - QnA 페이지를 렌더링합니다.
+	 */
+	@RequestMapping(value = "/academy/qna", method = RequestMethod.GET)
+	public String academyQna(Locale locale, Model model) {
+		logger.info("Academy QnA page accessed.");
+		addShopInfo(model);
+		return "academy-qna";
+	}
+
 }

@@ -7,6 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="${resources}/images/favicon.png">
     <title>아카데미 - ${shopName}</title>
     <link rel="stylesheet" href="${resources}/css/barbershop.css">
 </head>
@@ -15,9 +16,33 @@
     <header class="header">
         <div class="nav-container">
             <div class="logo"><a href="/">${shopName}</a></div>
-            <ul class="nav-tabs">
-                <li><a href="/">홈</a></li>
-                <li><a href="/academy" class="active">아카데미</a></li>
+            <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-tabs" id="nav-tabs">
+                <li><a href="/" onclick="closeMenu()">홈</a></li>
+                <li class="nav-dropdown">
+                    <a href="#" class="nav-dropdown-toggle" onclick="return false;">바버샵 ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/staff" onclick="closeMenu()">직원소개</a></li>
+                        <li><a href="/gallery" onclick="closeMenu()">갤러리</a></li>
+                        <li><a href="/#location" onclick="closeMenu()">매장정보</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="#" class="nav-dropdown-toggle active" onclick="return false;">바버아카데미 ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/academy/courses" onclick="closeMenu()">과정 및 가격</a></li>
+                        <li><a href="/academy/reviews" onclick="closeMenu()">후기</a></li>
+                        <li><a href="/academy/qna" onclick="closeMenu()">QnA</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" onclick="closeMenu()">커뮤니티</a></li>
+                <li><a href="${naverBookingUrl}" class="nav-naver-booking" onclick="closeMenu()" target="_blank" rel="noopener noreferrer" title="네이버 예약">
+                    <img src="${resources}/images/naver-booking.png" alt="네이버 예약">
+                </a></li>
             </ul>
         </div>
     </header>
@@ -290,38 +315,14 @@
     </main>
 
     <!-- Footer -->
-    <footer id="footer" class="footer-dark">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-left">
-                    <div class="footer-info">
-                        <h4>${shopName} 아카데미</h4>
-                        <p>전문 바버 양성을 위한 체계적인 교육 프로그램을 제공합니다.</p>
-                    </div>
-                </div>
-                
-                <div class="footer-right">
-                    <div class="footer-contact">
-                        <h4>연락처</h4>
-                        <div class="contact-info">
-                            <p><i class="icon-location">📍</i> ${shopAddress}</p>
-                            <p><i class="icon-phone">📞</i> ${shopPhone}</p>
-                            <p><i class="icon-email">📧</i> academy@barbergarden.com</p>
-                            <p><i class="icon-time">🕒</i> 09:00-22:00</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="copyright-content">
-                    <div class="copyright-left">
-                        <p>Copyrights &copy; 2024 All Rights Reserved by ${shopName} Academy.</p>
-                    </div>
-                </div>
-            </div>
+    <footer id="footer" class="footer-simple">
+        <div class="footer-simple-inner">
+            <p class="footer-brand">바버가든</p>
+            <p>대표 : 김희영 &nbsp;|&nbsp; 사업자 번호 : 104-11-22-127</p>
+            <p>TEL : 010-5539-0831</p>
+            <p>주소 : 05616 서울특별시 송파구 송파대로 447 2층</p>
+            <p>정보관리자 : 조재영 &nbsp;(romeo4648@gmail.com)</p>
+            <p class="footer-copy">Copyrights &copy; 2024 All Rights Reserved by BarberGarden.</p>
         </div>
     </footer>
 

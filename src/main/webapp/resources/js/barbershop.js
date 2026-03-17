@@ -2,6 +2,73 @@
  * BarberGarden 바버샵 홍보 페이지 JavaScript
  */
 
+// 햄버거 메뉴 토글
+function toggleMenu() {
+    const hamburger = document.getElementById('hamburger');
+    const navTabs = document.getElementById('nav-tabs');
+    if (!hamburger || !navTabs) return;
+    hamburger.classList.toggle('open');
+    navTabs.classList.toggle('open');
+}
+
+function closeMenu() {
+    const hamburger = document.getElementById('hamburger');
+    const navTabs = document.getElementById('nav-tabs');
+    if (!hamburger || !navTabs) return;
+    hamburger.classList.remove('open');
+    navTabs.classList.remove('open');
+    // 서브메뉴 닫기 + 화살표 원복
+    document.querySelectorAll('.dropdown-menu').forEach(function(m) {
+        m.classList.remove('open');
+    });
+    document.querySelectorAll('.nav-dropdown-toggle').forEach(function(t) {
+        t.textContent = t.textContent.replace('▲', '▾');
+    });
+}
+
+// 모바일 전용: 바버샵 드롭다운 토글
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.nav-dropdown-toggle').forEach(function(toggle) {
+        toggle.addEventListener('click', function(e) {
+            if (window.innerWidth > 768) return;
+            e.preventDefault();
+            e.stopPropagation(); // 외부 클릭 핸들러로 버블링 차단
+
+            const dropdown = toggle.nextElementSibling;
+            if (!dropdown) return;
+
+            const isOpen = dropdown.classList.contains('open');
+            // 열기/닫기 토글
+            dropdown.classList.toggle('open');
+            // 화살표 방향 전환
+            if (isOpen) {
+                toggle.textContent = toggle.textContent.replace('▲', '▾');
+            } else {
+                toggle.textContent = toggle.textContent.replace('▾', '▲');
+            }
+        });
+    });
+
+    // X 버튼(햄버거 닫기) 클릭 시 이벤트 버블링 차단
+    const hamburger = document.getElementById('hamburger');
+    if (hamburger) {
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleMenu();
+        });
+    }
+});
+
+// 화면 바깥 클릭 시 메뉴 닫기
+document.addEventListener('click', function(e) {
+    const hamburger = document.getElementById('hamburger');
+    const navTabs = document.getElementById('nav-tabs');
+    if (!hamburger || !navTabs) return;
+    if (!hamburger.contains(e.target) && !navTabs.contains(e.target)) {
+        closeMenu();
+    }
+});
+
 // 빠르고 부드러운 스크롤 이동 함수
 function scrollToSection(sectionId) {
     const section = document.getElementById(sectionId);
@@ -237,19 +304,7 @@ function initializePage() {
         kakaoBtn.addEventListener('click', openKakaoTalk);
     }
     
-    // 소셜 미디어 링크 이벤트
-    const socialIcons = document.querySelectorAll('.social-icon');
-    socialIcons.forEach(icon => {
-        icon.addEventListener('click', function(e) {
-            e.preventDefault();
-            const platform = this.classList.contains('facebook') ? 'Facebook' : 
-                           this.classList.contains('instagram') ? 'Instagram' : 
-                           this.classList.contains('youtube') ? 'YouTube' : 
-                           this.classList.contains('kakao') ? 'KakaoTalk' : '소셜미디어';
-            
-            alert(`${platform} 페이지로 연결됩니다!\n\n실제 운영 시 해당 SNS 링크로 연결해주세요.`);
-        });
-    });
+    // 소셜 미디어 링크 - href에 실제 URL이 설정되어 있으므로 별도 처리 없이 바로 이동
     
     // Footer 링크 이벤트
     const footerLinks = document.querySelectorAll('.footer-links a');

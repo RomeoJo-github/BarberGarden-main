@@ -7,6 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="${resources}/images/favicon.png">
     <title>${shopName} - 프리미엄 바버샵</title>
     <link rel="stylesheet" href="${resources}/css/barbershop.css">
 </head>

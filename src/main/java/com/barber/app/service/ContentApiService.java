@@ -25,8 +25,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class ContentApiService {
 
     private static final Logger logger = LoggerFactory.getLogger(ContentApiService.class);
-    private static final String ADMIN_API_BASE = "http://app:8090/api/contents/type";
-    private static final String ADMIN_API_ROOT = "http://app:8090/api/contents";
+
+    // 환경변수 ADMIN_API_HOST 없으면 로컬 기본값(localhost:8090) 사용
+    // Docker 운영 환경에서는 docker-compose.yml에서 http://app:8090 으로 주입
+    private static final String ADMIN_HOST =
+        System.getenv("ADMIN_API_HOST") != null ? System.getenv("ADMIN_API_HOST") : "http://localhost:8090";
+
+    private static final String ADMIN_API_BASE = ADMIN_HOST + "/api/contents/type";
+    private static final String ADMIN_API_ROOT = ADMIN_HOST + "/api/contents";
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 
@@ -81,6 +87,15 @@ public class ContentApiService {
      */
     public StaffContentDto getShopInfo() {
         List<StaffContentDto> list = getVisibleContentsByType("SHOP_INFO");
+        return list.isEmpty() ? null : list.get(0);
+    }
+
+    /**
+     * SOCIAL_LINKS 타입 중 visible=true인 첫 번째 항목을 반환합니다.
+     * title = 인스타그램 URL, description = 유튜브 URL, skills = 네이버 예약 URL 로 사용합니다.
+     */
+    public StaffContentDto getSocialLinks() {
+        List<StaffContentDto> list = getVisibleContentsByType("SOCIAL_LINKS");
         return list.isEmpty() ? null : list.get(0);
     }
 }

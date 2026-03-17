@@ -7,6 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="${resources}/images/favicon.png">
     <title>갤러리 - ${shopName}</title>
     <link rel="stylesheet" href="${resources}/css/barbershop.css">
 </head>
@@ -15,12 +16,33 @@
     <header class="header">
         <div class="nav-container">
             <div class="logo"><a href="/">${shopName}</a></div>
-            <ul class="nav-tabs">
-                <li><a href="/">홈</a></li>
-                <li><a href="/staff">직원소개</a></li>
-                <li><a href="/gallery" class="active">갤러리</a></li>
-                <li><a href="/#location">매장정보</a></li>
-                <li><a href="/academy">아카데미</a></li>
+            <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-tabs" id="nav-tabs">
+                <li><a href="/" onclick="closeMenu()">홈</a></li>
+                <li class="nav-dropdown">
+                    <a href="#" class="nav-dropdown-toggle active" onclick="return false;">바버샵 ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/staff" onclick="closeMenu()">직원소개</a></li>
+                        <li><a href="/gallery" onclick="closeMenu()">갤러리</a></li>
+                        <li><a href="/#location" onclick="closeMenu()">매장정보</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="#" class="nav-dropdown-toggle" onclick="return false;">바버아카데미 ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/academy/courses" onclick="closeMenu()">과정 및 가격</a></li>
+                        <li><a href="/academy/reviews" onclick="closeMenu()">후기</a></li>
+                        <li><a href="/academy/qna" onclick="closeMenu()">QnA</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" onclick="closeMenu()">커뮤니티</a></li>
+                <li><a href="${naverBookingUrl}" class="nav-naver-booking" onclick="closeMenu()" target="_blank" rel="noopener noreferrer" title="네이버 예약">
+                    <img src="${resources}/images/naver-booking.png" alt="네이버 예약">
+                </a></li>
             </ul>
         </div>
     </header>
