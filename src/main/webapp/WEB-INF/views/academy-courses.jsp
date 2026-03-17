@@ -54,114 +54,39 @@
             </div>
         </section>
 
-        <!-- 과정 선택 탭 -->
-        <section class="curriculum-section" style="padding: 80px 0;">
+        <!-- 바버 아카데미 과정 요약 (상단 카드) -->
+        <section style="padding: 80px 0; background: #f8f9fa;">
             <div class="container">
-                <div class="curriculum-tabs fade-in">
-                    <button class="curriculum-tab active" onclick="showCurriculum('basic')">기초과정</button>
-                    <button class="curriculum-tab" onclick="showCurriculum('advanced')">심화과정</button>
-                    <button class="curriculum-tab" onclick="showCurriculum('master')">마스터과정</button>
-                </div>
-
-                <div id="basic-curriculum" class="curriculum-content active fade-in">
-                    <div class="course-card">
-                        <div class="course-header">
-                            <h3>기초과정 (Basic Course)</h3>
-                            <div class="course-price">₩450,000</div>
-                        </div>
-                        <div class="course-details">
-                            <div class="course-duration">📅 교육기간: 4주 (주 3회, 총 12회)</div>
-                            <div class="course-time">🕐 수업시간: 1회 3시간</div>
-                            <h4>커리큘럼</h4>
-                            <ul class="curriculum-list">
-                                <li>바버샵 기본 도구 사용법</li>
-                                <li>기본 헤어컷 기법</li>
-                                <li>클리퍼 워크 기초</li>
-                                <li>시저 컷 기본기</li>
-                                <li>고객 상담 및 서비스</li>
-                                <li>위생 및 안전 관리</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="advanced-curriculum" class="curriculum-content fade-in">
-                    <div class="course-card">
-                        <div class="course-header">
-                            <h3>심화과정 (Advanced Course)</h3>
-                            <div class="course-price">₩650,000</div>
-                        </div>
-                        <div class="course-details">
-                            <div class="course-duration">📅 교육기간: 6주 (주 3회, 총 18회)</div>
-                            <div class="course-time">🕐 수업시간: 1회 3시간</div>
-                            <h4>커리큘럼</h4>
-                            <ul class="curriculum-list">
-                                <li>다양한 페이드 기법 마스터</li>
-                                <li>언더컷 &amp; 텍스처링</li>
-                                <li>클래식 면도법</li>
-                                <li>포마드 &amp; 스타일링</li>
-                                <li>트렌드 헤어스타일</li>
-                                <li>고급 클리퍼 테크닉</li>
-                                <li>비즈니스 마인드 교육</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="master-curriculum" class="curriculum-content fade-in">
-                    <div class="course-card">
-                        <div class="course-header">
-                            <h3>마스터과정 (Master Course)</h3>
-                            <div class="course-price">₩950,000</div>
-                        </div>
-                        <div class="course-details">
-                            <div class="course-duration">📅 교육기간: 8주 (주 4회, 총 32회)</div>
-                            <div class="course-time">🕐 수업시간: 1회 4시간</div>
-                            <h4>커리큘럼</h4>
-                            <ul class="curriculum-list">
-                                <li>전문 바버 마스터 과정</li>
-                                <li>크리에이티브 컷팅</li>
-                                <li>헤어 디자인 &amp; 아트</li>
-                                <li>면도 마스터 클래스</li>
-                                <li>살롱 운영 및 관리</li>
-                                <li>강사 양성 과정</li>
-                                <li>개인 브랜딩</li>
-                                <li>포트폴리오 제작</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 가격 비교 요약 -->
-        <section style="padding: 60px 0; background: #f8f9fa;">
-            <div class="container">
-                <h2 class="section-title fade-in" style="text-align:center; margin-bottom: 2.5rem;">과정별 가격 요약</h2>
+                <h2 class="section-title fade-in" style="text-align:center; margin-bottom: 2.5rem;">바버 아카데미 과정 안내</h2>
                 <div class="ac-price-grid fade-in">
+                    <div class="ac-price-card ac-price-card--highlight">
+                        <div class="ac-price-badge">자격증</div>
+                        <div class="ac-price-name">자격증과정</div>
+                        <div class="ac-price-amount">₩500,000</div>
+                        <div class="ac-price-detail">이용사 자격증과정</div>
+                    </div>
+                    <div class="ac-price-card">
+                        <div class="ac-price-badge">클리퍼</div>
+                        <div class="ac-price-name">바버 클리퍼 과정</div>
+                        <div class="ac-price-amount">₩500,000</div>
+                        <div class="ac-price-detail">추후 업데이트</div>
+                    </div>
                     <div class="ac-price-card">
                         <div class="ac-price-badge">기초</div>
-                        <div class="ac-price-name">Basic Course</div>
-                        <div class="ac-price-amount">₩450,000</div>
-                        <div class="ac-price-detail">4주 / 12회 / 회당 3시간</div>
-                        <a href="tel:${shopPhone}" class="btn btn-outline" style="margin-top:1.2rem; display:inline-block;">문의하기</a>
-                    </div>
-                    <div class="ac-price-card ac-price-card--highlight">
-                        <div class="ac-price-badge">심화</div>
-                        <div class="ac-price-name">Advanced Course</div>
-                        <div class="ac-price-amount">₩650,000</div>
-                        <div class="ac-price-detail">6주 / 18회 / 회당 3시간</div>
-                        <a href="tel:${shopPhone}" class="btn btn-primary" style="margin-top:1.2rem; display:inline-block;">문의하기</a>
+                        <div class="ac-price-name">바버 기초과정</div>
+                        <div class="ac-price-amount">₩1,000,000</div>
+                        <div class="ac-price-detail">추후 업데이트</div>
                     </div>
                     <div class="ac-price-card">
-                        <div class="ac-price-badge">마스터</div>
-                        <div class="ac-price-name">Master Course</div>
-                        <div class="ac-price-amount">₩950,000</div>
-                        <div class="ac-price-detail">8주 / 32회 / 회당 4시간</div>
-                        <a href="tel:${shopPhone}" class="btn btn-outline" style="margin-top:1.2rem; display:inline-block;">문의하기</a>
+                        <div class="ac-price-badge">심화</div>
+                        <div class="ac-price-name">바버 심화과정</div>
+                        <div class="ac-price-amount">₩2,000,000</div>
+                        <div class="ac-price-detail">추후 업데이트</div>
                     </div>
                 </div>
-                <p class="fade-in" style="text-align:center; margin-top:1.5rem; color:#888; font-size:0.9rem;">* 분할 결제 가능 (2~3개월) &nbsp;|&nbsp; 조기 등록 시 10% 할인</p>
+                <p class="fade-in" style="text-align:center; margin-top:1.5rem; color:#888; font-size:0.9rem;">
+                    * 과정 구성 및 세부 커리큘럼은 추후 업데이트 예정입니다.
+                </p>
             </div>
         </section>
 

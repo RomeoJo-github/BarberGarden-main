@@ -7,6 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="${resources}/images/favicon.png">
     <title>바버가든</title>
     <meta name="description" content="바버가든 - 잠실 남성전문 바버샵. 스킨페이드, 하이엔탑, 남자펌, 염색 등 모든 남성 헤어를 시술합니다.">
     <link rel="stylesheet" href="${resources}/css/barbershop.css">
@@ -210,50 +211,23 @@
     </main>
 
     <!-- Footer -->
-    <footer id="footer" class="footer-dark">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-left">
-                    <div class="footer-info">
-                        <h4>${shopName}</h4>
-                        <p>최고의 품질과 서비스로 고객님의 만족을 추구하는 프리미엄 바버샵입니다.</p>
-                    </div>
-                </div>
-                
-                <div class="footer-right">
-                    <div class="footer-contact">
-                        <h4>연락처</h4>
-                        <div class="contact-info">
-                            <p><i class="icon-location">📍</i> ${shopAddress}</p>
-                            <p><i class="icon-phone">📞</i> ${shopPhone}</p>
-                            <p><i class="icon-email">📧</i> info@barbergarden.com</p>
-                            <p><i class="icon-time">🕒</i> 09:00-22:00</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="copyright-content">
-                    <div class="copyright-left">
-                        <p>Copyrights &copy; 2024 All Rights Reserved by ${shopName}.</p>
-                        <div class="footer-links">
-                            <a href="#privacy">개인정보처리방침</a>
-                            <span>|</span>
-                            <a href="#terms">이용약관</a>
-                        </div>
-                    </div>
-                    <div class="copyright-right">
-                        <div class="social-icons">
-                            <a href="${instagramUrl}" target="_blank" rel="noopener noreferrer" class="social-icon instagram" title="Instagram">📷</a>
-                            <a href="${youtubeUrl}" target="_blank" rel="noopener noreferrer" class="social-icon youtube" title="YouTube">📺</a>
-                            <a href="${naverBookingUrl}" target="_blank" rel="noopener noreferrer" class="social-icon naver" title="네이버 예약">🟢</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <footer id="footer" class="footer-simple">
+        <div class="footer-simple-inner">
+            <p class="footer-brand">바버가든</p>
+            <p>대표 : 김희영 &nbsp;|&nbsp; 사업자 번호 : 104-11-22-127</p>
+            <p>TEL : 010-5539-0831</p>
+            <p>주소 : 05616 서울특별시 송파구 송파대로 447 2층</p>
+            <p>정보관리자 : 조재영 &nbsp;(romeo4648@gmail.com)</p>
+            <p class="footer-copy">
+                Copyrights &copy; 2024 All Rights Reserved by BarberGarden.
+                <span style="margin-left: 1rem; display: inline-flex; align-items: center; gap: 0.4rem;">
+                    <span class="social-icons">
+                        <a href="${instagramUrl}" target="_blank" rel="noopener noreferrer" class="social-icon instagram" title="Instagram">📷</a>
+                        <a href="${youtubeUrl}" target="_blank" rel="noopener noreferrer" class="social-icon youtube" title="YouTube">📺</a>
+                        <a href="${naverBookingUrl}" target="_blank" rel="noopener noreferrer" class="social-icon naver" title="네이버 예약">🟢</a>
+                    </span>
+                </span>
+            </p>
         </div>
     </footer>
 
