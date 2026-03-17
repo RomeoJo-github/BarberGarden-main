@@ -8,7 +8,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="${resources}/images/favicon.png">
-    <title>${shopName} - 프리미엄 바버샵</title>
+    <title>바버가든</title>
+    <meta name="description" content="바버가든 - 잠실 남성전문 바버샵. 스킨페이드, 하이엔탑, 남자펌, 염색 등 모든 남성 헤어를 시술합니다.">
     <link rel="stylesheet" href="${resources}/css/barbershop.css">
 </head>
 <body>
