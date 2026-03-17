@@ -31,16 +31,22 @@ public class HomeController {
 	 * 모든 페이지에 공통으로 매장 정보를 주입합니다.
 	 * SHOP_INFO 타입 콘텐츠에서 로딩: title=상호명, description=주소, skills=전화번호
 	 */
+	private static final String DEFAULT_MAP_EMBED =
+		"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.5984567891234!2d127.10598765432109!3d37.508934567890123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca50de1c8ae7d%3A0x63b1a2e6b9a0f7db!2z7ISc7Jq47Yq567OE7IucIOyGoeq1tOq1rCDshJzruITrj5kg7ISd7LG07J2RIDcgMTc0LTE1!5e0!3m2!1sko!2skr!4v1703123456789!5m2!1sko!2skr";
+
 	private void addShopInfo(Model model) {
 		StaffContentDto shopInfo = contentApiService.getShopInfo();
 		if (shopInfo != null) {
 			model.addAttribute("shopName",    shopInfo.getTitle());
 			model.addAttribute("shopAddress", shopInfo.getDescription());
 			model.addAttribute("shopPhone",   shopInfo.getSkills());
+			String mapEmbed = shopInfo.getRole();
+			model.addAttribute("googleMapsUrl", (mapEmbed != null && !mapEmbed.isEmpty()) ? mapEmbed : DEFAULT_MAP_EMBED);
 		} else {
 			model.addAttribute("shopName",    "BarberGarden");
 			model.addAttribute("shopAddress", "");
 			model.addAttribute("shopPhone",   "");
+			model.addAttribute("googleMapsUrl", DEFAULT_MAP_EMBED);
 		}
 
 		// 소셜 링크 - SOCIAL_LINKS 콘텐츠: title=인스타, description=유튜브, skills=네이버예약

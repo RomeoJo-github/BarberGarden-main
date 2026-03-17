@@ -81,9 +81,9 @@ echo ""
 if [ -z "$ADOPTIUM_JDK" ]; then
     if [ -d "/c/Program Files/Eclipse Adoptium" ]; then
         WIN_PROJ=$(pwd | sed 's|^/c/|C:\\|;s|^/C/|C:\\|;s|/|\\|g')
-        cmd //c "set JAVA_HOME=C:\Program Files\Eclipse Adoptium\jdk-17.0.17.10-hotspot && set PATH=%JAVA_HOME%\bin;%PATH% && set MAVEN_OPTS=--add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED && cd /d $WIN_PROJ && apache-maven-3.8.6\bin\mvn.cmd clean compile tomcat7:run"
+        cmd //c "set JAVA_HOME=C:\Program Files\Eclipse Adoptium\jdk-17.0.17.10-hotspot && set PATH=%JAVA_HOME%\bin;%PATH% && set MAVEN_OPTS=--add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED && cd /d $WIN_PROJ && apache-maven-3.8.6\bin\mvn.cmd compile tomcat7:run"
         exit $?
     fi
 fi
 
-./apache-maven-3.8.6/bin/mvn clean compile tomcat7:run
+./apache-maven-3.8.6/bin/mvn compile tomcat7:run

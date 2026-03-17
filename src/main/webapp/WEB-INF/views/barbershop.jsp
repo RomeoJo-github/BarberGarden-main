@@ -183,7 +183,7 @@
                     </div>
                     <div class="map-container fade-in">
                         <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.5984567891234!2d127.10598765432109!3d37.508934567890123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca50de1c8ae7d%3A0x63b1a2e6b9a0f7db!2z7ISc7Jq47Yq567OE7IucIOyGoeq1tOq1rCDshJzruITrj5kg7ISd7LG07J2RIDcgMTc0LTE1!5e0!3m2!1sko!2skr!4v1703123456789!5m2!1sko!2skr"
+                            src="${googleMapsUrl}"
                             width="100%" 
                             height="400" 
                             style="border:0;" 
