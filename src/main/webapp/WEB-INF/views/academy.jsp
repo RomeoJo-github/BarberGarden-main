@@ -39,7 +39,7 @@
                         <li><a href="/academy/qna" onclick="closeMenu()">QnA</a></li>
                     </ul>
                 </li>
-                <li><a href="#" onclick="closeMenu()">커뮤니티</a></li>
+                <li><a href="/community" onclick="closeMenu()">커뮤니티</a></li>
                 <li><a href="${naverBookingUrl}" class="nav-naver-booking" onclick="closeMenu()" target="_blank" rel="noopener noreferrer" title="네이버 예약">
                     <img src="${resources}/images/naver-booking.png" alt="네이버 예약">
                 </a></li>
@@ -322,7 +322,16 @@
             <p>TEL : 010-5539-0831</p>
             <p>주소 : 05616 서울특별시 송파구 송파대로 447 2층</p>
             <p>정보관리자 : 조재영 &nbsp;(romeo4648@gmail.com)</p>
-            <p class="footer-copy">Copyrights &copy; 2024 All Rights Reserved by BarberGarden.</p>
+            <p class="footer-copy">
+                Copyrights &copy; 2024 All Rights Reserved by BarberGarden.
+                <span style="margin-left: 1rem; display: inline-flex; align-items: center; gap: 0.4rem;">
+                    <span class="social-icons">
+                        <a href="${instagramUrl}" target="_blank" rel="noopener noreferrer" class="social-icon instagram" title="Instagram">📷</a>
+                        <a href="${youtubeUrl}" target="_blank" rel="noopener noreferrer" class="social-icon youtube" title="YouTube">📺</a>
+                        <a href="${naverBookingUrl}" target="_blank" rel="noopener noreferrer" class="social-icon naver" title="네이버 예약">🟢</a>
+                    </span>
+                </span>
+            </p>
         </div>
     </footer>
 

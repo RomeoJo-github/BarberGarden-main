@@ -44,7 +44,7 @@
                         <li><a href="/academy/qna" onclick="closeMenu()">QnA</a></li>
                     </ul>
                 </li>
-                <li><a href="#" onclick="closeMenu()">커뮤니티</a></li>
+                <li><a href="/community" onclick="closeMenu()">커뮤니티</a></li>
                 <li><a href="${naverBookingUrl}" class="nav-naver-booking" onclick="closeMenu()" target="_blank" rel="noopener noreferrer" title="네이버 예약">
                     <img src="${resources}/images/naver-booking.png" alt="네이버 예약">
                 </a></li>

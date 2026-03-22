@@ -12,6 +12,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  * Handles requests for the barber shop application.
@@ -161,6 +164,37 @@ public class HomeController {
 		logger.info("Academy QnA page accessed.");
 		addShopInfo(model);
 		return "academy-qna";
+	}
+
+	/**
+	 * 커뮤니티 페이지 (글 목록 + 글쓰기 폼)
+	 */
+	@RequestMapping(value = "/community", method = RequestMethod.GET)
+	public String community(Locale locale, Model model) {
+		logger.info("Community page accessed.");
+		addShopInfo(model);
+		List<StaffContentDto> posts = contentApiService.getCommunityPosts();
+		model.addAttribute("communityList", posts);
+		return "community";
+	}
+
+	/**
+	 * 커뮤니티 글 등록 (이미지 선택 가능)
+	 */
+	@RequestMapping(value = "/community/post", method = RequestMethod.POST)
+	public String communityPost(
+			@RequestParam("title") String title,
+			@RequestParam(value = "description", required = false) String description,
+			@RequestParam(value = "file", required = false) MultipartFile file,
+			RedirectAttributes redirectAttributes) {
+		try {
+			contentApiService.submitCommunityPost(title, description, file);
+			redirectAttributes.addFlashAttribute("message", "글이 등록되었습니다.");
+		} catch (Exception e) {
+			logger.warn("Community post failed", e);
+			redirectAttributes.addFlashAttribute("error", "등록 실패: " + e.getMessage());
+		}
+		return "redirect:/community";
 	}
 
 }
